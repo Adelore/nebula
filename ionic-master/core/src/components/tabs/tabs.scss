@@ -1,0 +1,35 @@
+@import "../../themes/ionic.globals";
+
+:host {
+  @include position(0, 0, 0, 0);
+
+  display: flex;
+  position: absolute;
+
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  contain: layout size style;
+  z-index: $z-index-page-container;
+}
+
+ion-tabbar {
+  @include position(null, 0, 0, 0);
+
+  display: none;
+  position: absolute;
+}
+
+:host(.tabbar-visible.tabs-md)::slotted(ion-tab) {
+  bottom: 56px; // tabbar height (it's fixed!)
+}
+
+:host(.tabbar-visible.tabs-ios)::slotted(ion-tab) {
+  bottom: 50px; // tabbar height (it's fixed!)
+}
+
+:host(.tabbar-visible) ion-tabbar {
+  display: flex;
+}
